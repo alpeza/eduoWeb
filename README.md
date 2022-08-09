@@ -1,2 +1,0 @@
-# eduoWeb
-Eduokit Web
