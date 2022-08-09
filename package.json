@@ -1,5 +1,5 @@
 {
-  "name": "nextly-template",
+  "name": "eduo-web",
   "version": "0.1.0",
   "description": "eduoTemplate",
   "engines": {
@@ -9,7 +9,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "heroku-postbuild": "npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
