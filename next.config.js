@@ -3,9 +3,10 @@ module.exports = {
     domains: ['localhost','localhost:1337','https://eduokit-admin.herokuapp.com','eduokit-admin.herokuapp.com'],
     formats: ['image/avif', 'image/webp'],
   },
+  fallback: false,
   i18n: {
-    locales: ["es"],
-    defaultLocale: "es",
+    locales: ["en"],
+    defaultLocale: "en",
   },
   target: "serverless",
   webpack: (config, { isServer }) => {
