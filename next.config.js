@@ -4,8 +4,8 @@ module.exports = {
     formats: ['image/avif', 'image/webp'],
   },
   i18n: {
-    locales: ["es"],
-    defaultLocale: "es",
+    locales: ["es","en"],
+    defaultLocale: "en",
   },
   target: "serverless",
   webpack: (config, { isServer }) => {
