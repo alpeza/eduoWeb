@@ -12,6 +12,7 @@ import Faq from "./faq";
 import PopupWidget from "./popupWidget";
 import { Benefit } from "./benefit";
 import { ParallaxProvider } from 'react-scroll-parallax';
+import { getStrapiURL } from "../lib/api";
 
 function LandingPage(props) {
     console.log(props)
@@ -19,12 +20,12 @@ function LandingPage(props) {
     <>
       <ParallaxProvider>
       <Head>
-        <title>Nextly - Free Nextjs & TailwindCSS Landing Page Template</title>
+        <title>{props.data.MetaInfo.Title}</title>
         <meta
-          name="description"
-          content="Nextly is a free landing page template built with next.js & Tailwind CSS"
+          name={props.data.MetaInfo.metaName}
+          content={props.data.MetaInfo.metaContent}
         />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href={props.data.MetaInfo.icon.data.attributes.url} />
       </Head>
       <Navbar content={props.data.Navbar}/>
       <Hero content={props.data.Hero} />
@@ -54,7 +55,7 @@ function LandingPage(props) {
       </SectionTitle>
       <Faq content={props.data.Section6.Acordeon} />
       <Cta content={props.data.Section7} />
-      <Footer />
+      <Footer content={props} />
       <PopupWidget />
       </ParallaxProvider>
     </>
