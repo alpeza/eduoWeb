@@ -2,19 +2,20 @@ import Head from "next/head";
 import Navbar from "./navbar";
 
 
-export default function PageHeader(props) {
+export default function CHeader(props) {
   return (
     <>
       <Head>
-        <title>Nextly - Free Nextjs & TailwindCSS Landing Page Template</title>
+        <title>{props.landingData.MetaInfo.Title}</title>
         <meta
-          name="description"
-          content="Nextly is a free landing page template built with next.js & Tailwind CSS"
+          name={props.landingData.MetaInfo.metaName}
+          content={props.landingData.MetaInfo.metaContent}
         />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href={props.landingData.MetaInfo.icon.data.attributes.url} />
       </Head>
       <Navbar content={props.landingData.Navbar}/>
     </>
   );
 }
+
 

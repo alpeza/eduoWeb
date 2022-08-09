@@ -3,6 +3,10 @@ import Container from "./container";
 import { getStrapiURL } from "../lib/api";
 import { Parallax } from 'react-scroll-parallax';
 
+/*
+import { getStrapiURL } from "../lib/api";
+const herourl = getStrapiURL(props.content.Image.data[0].attributes.url)
+*/
 
 export default function Hero(props) {
   const herourl = getStrapiURL(props.content.Image.data[0].attributes.url)
