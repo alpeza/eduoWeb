@@ -4,7 +4,7 @@ module.exports = {
     formats: ['image/avif', 'image/webp'],
   },
   i18n: {
-    locales: ["es","en"],
+    locales: ["en"],
     defaultLocale: "en",
   },
   target: "serverless",
