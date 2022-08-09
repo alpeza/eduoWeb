@@ -1,7 +1,10 @@
 {
   "name": "nextly-template",
   "version": "0.1.0",
-  "description": "Nextly Landing Page Template",
+  "description": "eduoTemplate",
+  "engines": {
+    "node": "16.x"
+  },
   "private": true,
   "scripts": {
     "dev": "next dev",
