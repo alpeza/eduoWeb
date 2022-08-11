@@ -1,6 +1,7 @@
 module.exports = {
+  reactStrictMode: true, 
   images: {
-    domains: ['localhost','localhost:1337','https://eduokit-admin.herokuapp.com','eduokit-admin.herokuapp.com'],
+    domains: ['localhost','localhost:1337','res.cloudinary.com','eduokit-admin.herokuapp.com'],
     formats: ['image/avif', 'image/webp'],
   },
   fallback: false,

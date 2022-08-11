@@ -29,7 +29,6 @@ export default function portfolio(params){
 
 
 export async function getStaticProps({ params }) {
-    console.log('Building page: ${slug}')
     const landingData = await fetchAllAPI("/landing-page");
     const portfolio = await fetchAllAPI("/portfolios");
     const title = await fetchAllAPI("/portfolio-page");
