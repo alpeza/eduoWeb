@@ -13,6 +13,7 @@ import PopupWidget from "./popupWidget";
 import { Benefit } from "./benefit";
 import { ParallaxProvider } from 'react-scroll-parallax';
 import { getStrapiURL } from "../lib/api";
+import Navbarx from "./navbarx";
 
 function LandingPage(props) {
     console.log(props)
@@ -27,7 +28,7 @@ function LandingPage(props) {
         />
         <link rel="icon" href={props.data.MetaInfo.icon.data.attributes.url} />
       </Head>
-      <Navbar content={props.data.Navbar}/>
+      <Navbarx></Navbarx>
       <Hero content={props.data.Hero} />
       <SectionTitle
         pretitle= {props.data.Section1.Header}

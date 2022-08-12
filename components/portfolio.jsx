@@ -9,15 +9,16 @@ class PortfolioItem extends React.Component {
         super(props);
         this.state = {
             data: props.content,
+            id: props.id,
             counter: 0 
         };
     }
     render() {
       return (
         <div class="overflow-hidden shadow-lg rounded-lg h-90 w-60 md:w-80 cursor-pointer m-auto">
-        <a href="#" class="w-full block h-full">
+        <a href={ this.state.data.descriptor.callpath + "/" + this.state.id } class="w-full block h-full">
             <img alt="blog photo" src={ getStrapiURL(this.state.data.descriptor.miniature.data.attributes.url) } class="max-h-40 w-full object-cover"/>
-            <div class="bg-white dark:bg-gray-800 w-full p-4">
+            <div class="bg-white dark:bg-tcc10 w-full p-4">
                 <p class="text-indigo-500 text-md font-medium">
                     { this.state.data.descriptor.type}
                 </p>
@@ -60,7 +61,7 @@ export default class Portfolio extends React.Component {
       return (
         <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-12">
         
-            {this.state.items.map(d => (<PortfolioItem content={d.attributes}> </PortfolioItem>))} 
+            {this.state.items.map(d => (<PortfolioItem content={d.attributes} id={d.id}> </PortfolioItem>))} 
        
         </div>
       );
