@@ -1,7 +1,7 @@
 import CHeader from "../../components/common";
 import { fetchAllAPI } from "../../lib/api";
-import Footer from "../../components/footer";
 import Portfolio from "../../components/portfolio";
+import Footerx from "../../components/footerx";
 
 export default function portfolio(params){
     return (
@@ -22,7 +22,7 @@ export default function portfolio(params){
         <Portfolio pitems={params.portfolio}></Portfolio>
     </div>
 
-        <Footer></Footer>
+        <Footerx/>
         </>
     )
 }

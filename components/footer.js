@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import React from "react";
 import Container from "./container";
+import { getSVG } from "../lib/svg";
 
 export default function Footer() {
   const navigation = [
@@ -88,7 +89,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener">
                 <span className="sr-only">Twitter</span>
-                <Twitter />
+                <Twitter /> {getSVG('twitter')}
               </a>
               <a
                 href="https://facebook.com/web3templates"

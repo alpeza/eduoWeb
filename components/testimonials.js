@@ -9,7 +9,6 @@ import userThreeImg from "../public/img/user3.jpg";
 import { getStrapiURL } from "../lib/api";
 
 export default function Testimonials(p) {
-  console.log(p)
   return (
     <Container>
       <div className="grid gap-10 lg:grid-cols-2 xl:grid-cols-3">

@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Navbar from "./navbar";
+import Navbarx from "./navbarx";
 
 
 export default function CHeader(props) {
@@ -13,7 +14,7 @@ export default function CHeader(props) {
         />
         <link rel="icon" href={props.landingData.MetaInfo.icon.data.attributes.url} />
       </Head>
-      <Navbar content={props.landingData.Navbar}/>
+      <Navbarx></Navbarx>
     </>
   );
 }
