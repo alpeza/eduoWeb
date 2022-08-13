@@ -3,13 +3,14 @@
   "version": "0.1.0",
   "description": "eduoTemplate",
   "engines": {
-    "node": "18.x"
+    "node": "16.x"
   },
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "install": "npm install --legacy-peer-deps",
     "heroku-postbuild": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
