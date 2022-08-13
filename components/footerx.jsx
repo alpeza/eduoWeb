@@ -86,8 +86,8 @@ class Footerx extends Component {
     }))
       .then((res) => res.json())
       .then((data) => {
-        console.dir(data, { depth: null, colors: true });
-        console.log(getStrapiMediaInfo(data.data.attributes.powered))
+        //console.dir(data, { depth: null, colors: true });
+        //console.log(getStrapiMediaInfo(data.data.attributes.powered))
         this.setState({
           brandtext: data.data?.attributes.brandtext,
           otherLinks: this.getLinks(data.data.attributes.otherlinks),

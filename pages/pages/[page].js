@@ -17,12 +17,15 @@ const qs = require('qs');
   
   export async function getStaticPaths() {
     const portfolio = await fetchAPI("/pages",{fields: ['ppath']})
-    return {
+    const vpaths = {
         paths:  portfolio.data.map( (d) => ({
           params: { page: d.attributes.ppath.toString() }
         })),
         fallback: false, 
       }
+    console.log("Valid Page Paths: ")
+    console.log(vpaths)
+    return vpaths
   }
   
   export async function getStaticProps({ params }) {
