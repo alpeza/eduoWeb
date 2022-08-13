@@ -44,7 +44,7 @@ export default class Navbarx extends React.Component {
             navigation: larr
           })
         } catch (error) {
-          console.log(error)
+          console.error(error)
         }
       })
   }
@@ -102,17 +102,13 @@ export default class Navbarx extends React.Component {
                   <Disclosure.Panel className="flex flex-wrap w-full my-5 lg:hidden">
                     <>
                       {navigation.map(data => (
-                        <Link key={data.id} href={data.Link}>
-                          <a href={data.Link} className="w-full px-4 py-2 -ml-4 text-tca20 rounded-md dark:text-gray-300 hover:text-tcb6 focus:text-tcb6 focus:bg-tcb4 dark:focus:bg-tca3 focus:outline-none dark:focus:bg-tcc9">
-                            {data.Text}
-                          </a>
-                        </Link>
-                      ))}
-                      <Link href="/">
-                        <a className="w-full px-6 py-2 mt-3 text-center text-white bg-tcb7 rounded-md lg:ml-5">
-                          Get Started
+
+                        <a className="w-full px-4 py-2 -ml-4 text-tca20 rounded-md dark:text-gray-300 hover:text-tcb6 focus:text-tcb6 focus:bg-tcb4 dark:focus:bg-tca3 focus:outline-none dark:focus:bg-tcc9">
+                          {data.Text}
                         </a>
-                      </Link>
+
+                      ))}
+
                     </>
                   </Disclosure.Panel>
                 </div>
@@ -125,11 +121,11 @@ export default class Navbarx extends React.Component {
             <ul className="items-center justify-end flex-1 pt-6 list-none lg:pt-0 lg:flex">
               {navigation.map(data => (
                 <li className="mr-3 nav__item" key={data.Link}>
-                  <Link href={data.Link}>
-                    <a className="inline-block px-4 py-2 text-lg font-normal text-tca3 no-underline rounded-md dark:text-gray-200 hover:text-tcb6 focus:text-tcb6 focus:bg-tcb4 focus:outline-none dark:focus:bg-tca3">
-                      {data.Text}
-                    </a>
-                  </Link>
+
+                  <a href={data.Link} className="inline-block px-4 py-2 text-lg font-normal text-tca3 no-underline rounded-md dark:text-gray-200 hover:text-tcb6 focus:text-tcb6 focus:bg-tcb4 focus:outline-none dark:focus:bg-tca3">
+                    {data.Text}
+                  </a>
+
                 </li>
               ))}
             </ul>
