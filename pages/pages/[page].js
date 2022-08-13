@@ -2,14 +2,30 @@ import CHeader from "../../components/common";
 import { fetchAllAPI,fetchAPI } from "../../lib/api";
 import ComponentDispatcher from "../../components/componentDispatcher";
 import Footerx from "../../components/footerx";
-const qs = require('qs');
+import { motion } from "framer-motion";
 
   export default function portfolio(params){
+    const variants = {
+      hidden: { opacity: 0.5, x: -100, y: 0 },
+      enter: { opacity: 1, x: 0, y: 0 },
+      exit: { opacity: 0, x: 0, y: 0 },
+  }
       return (
           <>
+          
           <CHeader landingData={params.landingData}></CHeader>
+          <motion.main
+    variants={variants} // Pass the variant object into Framer Motion 
+    initial="hidden" // Set the initial state to variants.hidden
+    animate="enter" // Animated state to variants.enter
+    exit="exit" // Exit state (used later) to variants.exit
+    transition={{ type: 'linear' }} // Set the transition to linear
+    className=""
+>
           <ComponentDispatcher response={params.response}></ComponentDispatcher>
+          
           <Footerx/>
+          </motion.main>
           </>
       )
   }
