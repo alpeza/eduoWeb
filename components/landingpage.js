@@ -14,9 +14,9 @@ import { Benefit } from "./benefit";
 import { ParallaxProvider } from 'react-scroll-parallax';
 import { getStrapiURL } from "../lib/api";
 import Navbarx from "./navbarx";
+import Footerx from "./footerx";
 
 function LandingPage(props) {
-    console.log(props)
   return (
     <>
       <ParallaxProvider>
@@ -56,7 +56,8 @@ function LandingPage(props) {
       </SectionTitle>
       <Faq content={props.data.Section6.Acordeon} />
       <Cta content={props.data.Section7} />
-      <Footer content={props} />
+      { /*<Footer content={props} />*/ }
+      <Footerx/>
       <PopupWidget />
       </ParallaxProvider>
     </>

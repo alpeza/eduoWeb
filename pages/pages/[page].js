@@ -1,7 +1,7 @@
 import CHeader from "../../components/common";
 import { fetchAllAPI,fetchAPI } from "../../lib/api";
-import Footer from "../../components/footer";
 import ComponentDispatcher from "../../components/componentDispatcher";
+import Footerx from "../../components/footerx";
 const qs = require('qs');
 
   export default function portfolio(params){
@@ -9,7 +9,7 @@ const qs = require('qs');
           <>
           <CHeader landingData={params.landingData}></CHeader>
           <ComponentDispatcher response={params.response}></ComponentDispatcher>
-          <Footer></Footer>
+          <Footerx/>
           </>
       )
   }
