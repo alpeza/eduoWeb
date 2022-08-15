@@ -1,18 +1,16 @@
 import Head from "next/head";
 import Hero from "./hero";
-import Navbar from "./navbar";
 import SectionTitle from "./sectionTitle";
 
 import Video from "./video";
 import Benefits from "./benefits";
-import Footer from "./footer";
 import Testimonials from "./testimonials";
 import Cta from "./cta";
 import Faq from "./faq";
 import PopupWidget from "./popupWidget";
 import { Benefit } from "./benefit";
 import { ParallaxProvider } from 'react-scroll-parallax';
-import { getStrapiURL } from "../lib/api";
+import ModelViewer from "./3DViewer/ModelViewer";
 import Navbarx from "./navbarx";
 import Footerx from "./footerx";
 
@@ -28,14 +26,16 @@ function LandingPage(props) {
         />
         <link rel="icon" href={props.data.MetaInfo.icon.data.attributes.url} />
       </Head>
+     
       <Navbarx></Navbarx>
       <Hero content={props.data.Hero} />
+      <ModelViewer scale="3" position = {[0, -4, 0]} modelPath={"./globo.glb"} />
+
       <SectionTitle
         pretitle= {props.data.Section1.Header}
         title={props.data.Section1.Title}>
         {props.data.Section1.Subtitle}
       </SectionTitle>
-
       <Benefits data={Benefit(props.data.Section2)} />
       <Benefits imgPos="right" data={Benefit(props.data.Section3)} />
       <SectionTitle

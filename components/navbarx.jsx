@@ -103,7 +103,7 @@ export default class Navbarx extends React.Component {
                     <>
                       {navigation.map(data => (
 
-                        <a className="w-full px-4 py-2 -ml-4 text-tca20 rounded-md dark:text-gray-300 hover:text-tcb6 focus:text-tcb6 focus:bg-tcb4 dark:focus:bg-tca3 focus:outline-none dark:focus:bg-tcc9">
+                        <a href={data.Link} className="w-full px-4 py-2 -ml-4 text-tca20 rounded-md dark:text-gray-300 hover:text-tcb6 focus:text-tcb6 focus:bg-tcb4 dark:focus:bg-tca3 focus:outline-none dark:focus:bg-tcc9">
                           {data.Text}
                         </a>
 
