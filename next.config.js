@@ -1,5 +1,5 @@
-const withTM = require('next-transpile-modules')(['three'])
-module.exports = withTM()
+//const withTM = require('next-transpile-modules')(['three'])
+//module.exports = withTM()
 module.exports = {
   reactStrictMode: true, 
   images: {
