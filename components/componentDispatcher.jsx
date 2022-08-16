@@ -10,8 +10,8 @@ import Faq from "./faq";
 import PopupWidget from "./popupWidget";
 import { Benefit } from "./benefit";
 import { ParallaxProvider } from 'react-scroll-parallax';
-
-
+import { getStrapiURL } from "../lib/api";
+import ModelViewer from "./3DViewer/ModelViewer";
 
 export default class ComponentDispatcher extends React.Component {
     constructor(props) {
@@ -22,11 +22,8 @@ export default class ComponentDispatcher extends React.Component {
         };
         this.engine()
     }
-    //<Hero content={props.data.Hero} />  "landing-assets.hero"
-    //<Video content={props.data.Section4} />  "landing-assets.card-video"
+
     //<Testimonials content={props.data.Section5.Testimonials} /> 
-    //<Faq content={props.data.Section6.Acordeon} />
-    //<Cta content={props.data.Section7} />
 
     engine() {
         this.state.response.data[0].attributes.pcontent.forEach(element => {
@@ -39,11 +36,32 @@ export default class ComponentDispatcher extends React.Component {
             } else if (element["__component"] == "landing-assets.card-video") {
                 this.state.elmarr.push(<SectionTitle pretitle={element.Head} title={element.Title}>{element.Text}</SectionTitle>)
                 this.state.elmarr.push(<Video content={element} />)
+            } else if (element["__component"] == "landing-assets.acordeon-card") {
+                this.state.elmarr.push(<SectionTitle pretitle={element.Header.Head} title={element.Header.Title}>{element.Header.Text}</SectionTitle>)
+                this.state.elmarr.push(<Faq content={element.Acordeon} />)
+            } else if (element["__component"] == "landing-assets.card-video") {
+                this.state.elmarr.push(<SectionTitle pretitle={element.Head} title={element.Title}>{element.Text}</SectionTitle>)
+                this.state.elmarr.push(<Video content={element.videoUrl} />)
+            } else if (element["__component"] == "landing-assets.cta") {
+                this.state.elmarr.push(<Cta content={element} />)
+            } else if (element["__component"] == "landing-assets.model-viewer") {
+                this.state.elmarr.push(<ModelViewer
+                    scale={element.config.model.scale}
+                    style={element.style}
+                    lights={element.config.lights}
+                    position={element.config.model.position}
+                    modelPath={getStrapiURL(element.Model.data.attributes.url)}
+                    orbitControls={element.config.orbitControls}
+                    rotation={element.config.model.rotation}
+                    rotateAnimation={element.config.model.rotateAnimation}
+                />)
             } else {
                 console.error("No se ha encontrado el elemento" + element["__component"])
             }
         })
     }
+
+
     render() {
         return (
             <>

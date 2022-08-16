@@ -90,11 +90,18 @@ var qr=querier( 'navbar',qs.stringify({
 }, {
   encodeValuesOnly: true, // prettify URL
 }))
-*/
+
 
 var qr=querier( 'footer',qs.stringify({
   populate: ['otherlinks.pages','otherlinks.Links','otherlinks.social','powered'], 
   fields: ['brandtext']
+}, {
+  encodeValuesOnly: true, // prettify URL
+}))
+*/
+
+var qr=querier( 'home',qs.stringify({
+  populate: 'deep,30',
 }, {
   encodeValuesOnly: true, // prettify URL
 }))

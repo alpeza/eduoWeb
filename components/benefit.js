@@ -1,42 +1,25 @@
-import {
-    EmojiHappyIcon,
-    ChartSquareBarIcon,
-    CursorClickIcon,
-    DeviceMobileIcon,
-    AdjustmentsIcon,
-    SunIcon,
-} from "@heroicons/react/outline";
 import { getStrapiURL } from "../lib/api";
-
-
-export function GetIcon(iconString){
-    if (iconString == "EmojiHappyIcon")
-        return <EmojiHappyIcon />
-    else if (iconString == "ChartSquareBarIcon")
-        return <ChartSquareBarIcon />
-    else if (iconString == "CursorClickIcon")
-        return <CursorClickIcon />
-    else if (iconString == "DeviceMobileIcon")
-        return <DeviceMobileIcon />
-    else if (iconString == "AdjustmentsIcon")
-        return <AdjustmentsIcon />
-    else if (iconString == "SunIcon")
-        return <SunIcon />
-    else
-        return <SunIcon />
-}
+import { getIcon } from "../lib/iconlib";
 
 export function Benefit(p) {
     try {
         var imageurl = ""
+        var size = { height: 40, width: 40 }
         imageurl = getStrapiURL(p.Image.data[0].attributes.url)
+        size.height = p.Image.data[0].attributes.height
+        size.width = p.Image.data[0].attributes.width
       } catch (error) {
         imageurl = getStrapiURL(p.Image.data.attributes.url)
+        size.height = p.Image.data.attributes.height
+        size.width = p.Image.data.attributes.width
       }
     var benefit = {
         title: p.Title,
         desc: p.Text,
         image: imageurl,
+        imageSize: size,
+        ModelViewer: p.ModelViewer,
+        istridi: p.is3D,
         bullets:[]
     };
     for (let i = 0; i < p.CardItem.length; i++) {
@@ -45,7 +28,7 @@ export function Benefit(p) {
             {
                 title: e.Title,
                 desc: e.Text,
-                icon: GetIcon(e.Icon.trim()),
+                icon: getIcon(e.Icon.trim()),
             }            
         )
     }

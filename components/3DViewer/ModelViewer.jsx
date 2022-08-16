@@ -3,18 +3,18 @@ import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import GltfModel from "./gltf";
 
-const ModelViewer = ({ modelPath, scale = 1, position = [0, 0, 0], orbitControls = true, rotation = [0, 0, 0] }) => {
+const ModelViewer = ({ modelPath, style = {}, scale = 1, position = [0, 0, 0], lights = {}, orbitControls = true, rotateAnimation = [0, 0.003, 0], rotation = [0, 0, 0] }) => {
     return (
-        <div style={{ height: "100vh", "background-image": "url('tierra.png')", "background-repeat": "no-repeat", "background-size": "100%" }}>
+        <div style={style}>
             <Canvas>
-                <ambientLight intensity={0.3} />
-                <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
-                <pointLight position={[-10, -10, -10]} />
+                <ambientLight intensity={lights.ambientLight.intensity} />
+                <spotLight position={lights.spotLight.position} angle={lights.spotLight.angle} penumbra={lights.spotLight.penumbra} />
+                <pointLight position={lights.pointLight.position} />
                 <Suspense fallback={null}>
-                    <GltfModel modelPath={modelPath} scale={scale} position={position} rotation={rotation} />
+                    <GltfModel modelPath={modelPath} scale={scale} position={position} rotation={rotation} rotateAnimation={rotateAnimation} />
                     {orbitControls && (
                         <>
-                            <OrbitControls />
+                            <OrbitControls enableZoom={false} />
                         </>
                     )}
                 </Suspense>

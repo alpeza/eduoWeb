@@ -8,3 +8,8 @@
     @apply dark:bg-trueGray-900;
   }
 }
+
+@font-face {
+  font-family: "GrandHotel";
+  src: url("../public/fonts/GrandHotel-Regular.ttf");
+}

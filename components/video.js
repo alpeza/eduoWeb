@@ -1,7 +1,17 @@
 import { useState } from "react";
 import Container from "./container";
+// {/*src="https://www.youtube-nocookie.com/embed/aOq49euWnIo?controls=0&autoplay=1"*/}
 
-export default function Video() {
+function getYouTubeUrl(url){
+  var arr = url.match(/^https:\/\/youtu.be\/(\w+)$/);
+  if(arr && arr[1])
+    url="https://www.youtube.com/embed/" + arr[1]
+  
+  console.log(url);
+  return url;
+}
+
+export default function Video(props) {
   const [playVideo, setPlayVideo] = useState(false);
   return (
     <Container>
@@ -27,7 +37,7 @@ export default function Video() {
           )}
           {playVideo && (
             <iframe
-              src="https://www.youtube-nocookie.com/embed/aOq49euWnIo?controls=0&autoplay=1"
+              src={getYouTubeUrl(props.content.videoUrl)}
               title="YouTube video player"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

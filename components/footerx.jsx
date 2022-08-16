@@ -120,7 +120,7 @@ class Footerx extends Component {
                         />
                       )}
                     </span>
-                    <span>{name}</span>
+                    <span style={{ "font-size": "1.5em" }} class="font-GrandHotel">{name}</span>
                   </a>
                 </Link>
               </div>
