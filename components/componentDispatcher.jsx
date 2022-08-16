@@ -10,7 +10,8 @@ import Faq from "./faq";
 import PopupWidget from "./popupWidget";
 import { Benefit } from "./benefit";
 import { ParallaxProvider } from 'react-scroll-parallax';
-
+import { getStrapiURL } from "../lib/api";
+import ModelViewer from "./3DViewer/ModelViewer";
 
 export default class ComponentDispatcher extends React.Component {
     constructor(props) {
@@ -43,6 +44,17 @@ export default class ComponentDispatcher extends React.Component {
                 this.state.elmarr.push(<Video content={element.videoUrl} />)
             } else if (element["__component"] == "landing-assets.cta") {
                 this.state.elmarr.push(<Cta content={element} />)
+            } else if (element["__component"] == "landing-assets.model-viewer") {
+                this.state.elmarr.push(<ModelViewer
+                    scale={element.config.model.scale}
+                    style={element.style}
+                    lights={element.config.lights}
+                    position={element.config.model.position}
+                    modelPath={getStrapiURL(element.Model.data.attributes.url)}
+                    orbitControls={element.config.orbitControls}
+                    rotation={element.config.model.rotation}
+                    rotateAnimation={element.config.model.rotateAnimation}
+                />)
             } else {
                 console.error("No se ha encontrado el elemento" + element["__component"])
             }

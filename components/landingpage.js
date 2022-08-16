@@ -29,11 +29,7 @@ function LandingPage(props) {
      
       <Navbarx></Navbarx>
       <Hero content={props.data.Hero} />
-      <ModelViewer scale="2.5" 
-        position = {[0, -3, 0]} 
-        modelPath={"./globo.glb"} 
-        orbitControls = {false} 
-        rotation = {[-0.3, 0, 0]} />
+
 
       <SectionTitle
         pretitle= {props.data.Section1.Header}

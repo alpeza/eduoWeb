@@ -1,19 +1,31 @@
-import LandingPage from "../components/landingpage";
-import { fetchAllAPI } from "../lib/api";
+import { fetchAPI } from "../lib/api";
+import ComponentDispatcher from "../components/componentDispatcher";
+import Footerx from "../components/footerx";
+import Navbarx from "../components/navbarx";
+
+
+export default function Home({ response }) {
+  return (
+    <>
+    <Navbarx/>
+    <ComponentDispatcher response={response}></ComponentDispatcher>
+    <Footerx/>    
+    </>
+  );
+}
 
 export async function getStaticProps() {
-  // Run API calls in parallel
-  const [landingRes ] = await Promise.all([fetchAllAPI("/landing-page")]);
+  const [resp] = await Promise.all([
+    fetchAPI("/home",{
+      populate: 'deep,30',
+    })
+  ])
+  var newStruct={data : []}
+  newStruct.data.push(resp.data.attributes.MainPage.page.data)
   return {
     props: {
-      landingdata: landingRes.data.attributes,
+      response: newStruct
     },
     revalidate: 1,
   };
-}
-
-export default function Home({ landingdata }) {
-  return (
-    <LandingPage data={landingdata} ></LandingPage>
-  );
 }

@@ -18,6 +18,8 @@ export function Benefit(p) {
         desc: p.Text,
         image: imageurl,
         imageSize: size,
+        ModelViewer: p.ModelViewer,
+        istridi: p.is3D,
         bullets:[]
     };
     for (let i = 0; i < p.CardItem.length; i++) {
