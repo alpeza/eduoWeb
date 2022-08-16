@@ -29,7 +29,7 @@ export default function Hero(props) {
             <div className="flex flex-col items-start space-y-3 sm:space-x-4 sm:space-y-0 sm:items-center sm:flex-row">
               {props.content.LBText != "" && (
               <a
-                href="https://web3templates.com/templates/nextly-landing-page-template-for-startups"
+                href={props.content.LBUrl}
                 target="_blank"
                 rel="noopener"
                 className="px-8 py-4 text-lg font-medium text-center text-white bg-tcb7 rounded-md ">
@@ -38,7 +38,7 @@ export default function Hero(props) {
               )}
               {props.content.RBText != "" && (
               <a
-                href="https://github.com/web3templates/nextly-template/"
+                href={props.content.RBUrl}
                 target="_blank"
                 rel="noopener"
                 className="flex items-center space-x-2 text-tca20 dark:text-gray-400">
@@ -64,7 +64,6 @@ export default function Hero(props) {
           </div>
         </div>
       </Container>
-
     </>
   );
 }

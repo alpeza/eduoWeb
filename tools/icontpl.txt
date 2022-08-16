@@ -1,0 +1,16 @@
+import {
+{% for i in icoArray -%}
+    {{i}},
+{% endfor %}
+} from "@heroicons/react/outline";
+
+export function getIcon(iconString){
+    if (iconString == "nothing")
+        return <EmojiHappyIcon />
+    {% for i in icoArray -%}
+    else if (iconString == "{{i}}")
+        return <{{i}} />
+    {% endfor %}
+    else
+        return <SunIcon />
+}
