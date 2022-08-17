@@ -75,7 +75,6 @@ const Carousel = ({ images }) => {
         // Finally the image itself will be 100% of a parent div. Outer div is
         // set with position relative, so we can place our cotrol buttons using
         // absolute positioning on each side of the image.
-
         <div className="w-screen flex justify-center">
             <div className="p-12 flex justify-center w-screen md:w-1/2 items-center">
                 <div className="relative w-full">
