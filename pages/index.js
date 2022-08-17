@@ -2,6 +2,7 @@ import { fetchAPI } from "../lib/api";
 import ComponentDispatcher from "../components/componentDispatcher";
 import Footerx from "../components/footerx";
 import Navbarx from "../components/navbarx";
+import Carousel from "../components/carousel";
 
 
 export default function Home({ response }) {

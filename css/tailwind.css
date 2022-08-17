@@ -13,3 +13,12 @@
   font-family: "GrandHotel";
   src: url("../public/fonts/GrandHotel-Regular.ttf");
 }
+
+.carousel {
+  display: inline-flex;
+  overflow-x: hidden;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; 
+  -ms-overflow-style: none;
+}

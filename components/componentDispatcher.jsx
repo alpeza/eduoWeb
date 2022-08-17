@@ -12,6 +12,7 @@ import { Benefit } from "./benefit";
 import { ParallaxProvider } from 'react-scroll-parallax';
 import { getStrapiURL } from "../lib/api";
 import ModelViewer from "./3DViewer/ModelViewer";
+import Carousel from "./carousel";
 
 export default class ComponentDispatcher extends React.Component {
     constructor(props) {
@@ -44,7 +45,16 @@ export default class ComponentDispatcher extends React.Component {
                 this.state.elmarr.push(<Video content={element.videoUrl} />)
             } else if (element["__component"] == "landing-assets.cta") {
                 this.state.elmarr.push(<Cta content={element} />)
+            } else if (element["__component"] == "landing-assets.carousel") {
+                /* ==== Carousel ==== */
+                let imgArr = [];
+                element.images.data.forEach(image => {
+                    imgArr.push(getStrapiURL(image.attributes.url))
+                })
+                this.state.elmarr.push(<Carousel images={imgArr}></Carousel>)
+
             } else if (element["__component"] == "landing-assets.model-viewer") {
+                /* ==== model-viewer ==== */
                 this.state.elmarr.push(<ModelViewer
                     scale={element.config.model.scale}
                     style={element.style}

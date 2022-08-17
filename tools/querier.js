@@ -98,10 +98,42 @@ var qr=querier( 'footer',qs.stringify({
 }, {
   encodeValuesOnly: true, // prettify URL
 }))
-*/
+
 
 var qr=querier( 'home',qs.stringify({
   populate: 'deep,30',
 }, {
   encodeValuesOnly: true, // prettify URL
 }))
+*/
+
+function procesa2(info){
+  //console.dir(info, {depth: null, colors: true});
+  info.data[0].attributes.pcontent.forEach(element => {
+    if( element['__component'] == 'landing-assets.carousel'){
+      console.dir(element, {depth: null, colors: true});
+      let imgArr = []
+      element.images.data.forEach(image => {
+        imgArr.push(image.attributes.url)
+      })
+     
+      console.log(imgArr)
+    }
+  });
+  console.log(imgArr)
+}
+
+requestify.get('http://localhost:1337/api/pages?'+qs.stringify({
+  populate: 'deep,30',
+  filters: {
+    ppath: {
+      $eq: 'demoassets',
+    },
+  },
+}))
+.then(function(response) {
+  procesa2(response.getBody())
+})
+.fail(function (response) {
+  console.log('response Error', response.getCode());
+});
