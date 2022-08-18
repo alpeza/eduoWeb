@@ -144,7 +144,7 @@ requestify.get('http://localhost:1337/api/pages?'+qs.stringify({
 function procesa2(info){
   //console.dir(info, {depth: null, colors: true});
   info.data[0].attributes.pcontent.forEach(element => {
-    if( element['__component'].match('landing-assets.free-text')){
+    if( element['__component'].match('plugins.thinkercircuit')){
       console.dir(element, {depth: null, colors: true});
     }
   });

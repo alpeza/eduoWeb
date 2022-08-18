@@ -15,6 +15,7 @@ import ModelViewer from "./3DViewer/ModelViewer";
 import Carousel from "./carousel";
 import GridDispatcher from "./GridCards/gridDispatcher";
 import FreeText from "./freeText";
+import Thinckerframe from "./thinckerframe";
 
 export default class ComponentDispatcher extends React.Component {
     constructor(props) {
@@ -60,6 +61,9 @@ export default class ComponentDispatcher extends React.Component {
             } else if (element["__component"] == 'landing-assets.free-text') {
                 /* ==== FreeText ==== */
                 this.state.elmarr.push(<FreeText content={element}></FreeText>)
+            } else if (element["__component"] == 'plugins.thinkercircuit') {
+                /* ==== Thincker circuit ==== */
+                this.state.elmarr.push(<Thinckerframe content={element}></Thinckerframe>)
             } else if (element["__component"] == "landing-assets.model-viewer") {
                 /* ==== model-viewer ==== */
                 this.state.elmarr.push(<ModelViewer
