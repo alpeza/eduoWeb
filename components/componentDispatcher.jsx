@@ -13,6 +13,8 @@ import { ParallaxProvider } from 'react-scroll-parallax';
 import { getStrapiURL } from "../lib/api";
 import ModelViewer from "./3DViewer/ModelViewer";
 import Carousel from "./carousel";
+import GridDispatcher from "./GridCards/gridDispatcher";
+import FreeText from "./freeText";
 
 export default class ComponentDispatcher extends React.Component {
     constructor(props) {
@@ -52,7 +54,12 @@ export default class ComponentDispatcher extends React.Component {
                     imgArr.push(getStrapiURL(image.attributes.url))
                 })
                 this.state.elmarr.push(<Carousel images={imgArr}></Carousel>)
-
+            } else if (element['__component'].match('grid-cards\..*')) {
+                /* ==== GridSystem ==== */
+                this.state.elmarr.push(<GridDispatcher gridList={element} />)
+            } else if (element["__component"] == 'landing-assets.free-text') {
+                /* ==== FreeText ==== */
+                this.state.elmarr.push(<FreeText content={element}></FreeText>)
             } else if (element["__component"] == "landing-assets.model-viewer") {
                 /* ==== model-viewer ==== */
                 this.state.elmarr.push(<ModelViewer
