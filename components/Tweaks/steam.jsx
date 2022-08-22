@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Container from "../container";
 import $ from 'jquery';
 import { getStrapiURL } from "../../lib/api";
-import { isMobile } from 'react-device-detect';
+import { ConsoleView, isMobile } from 'react-device-detect';
 
 const imStyle = { "filter": "drop-shadow(10px 10px 10px rgba(0,0,0,0.5))", "height": isMobile ? "50%" : "70%", "width": "auto", "margin-left": "auto", "margin-right": "auto", "display": "block" }
 
@@ -14,22 +14,53 @@ class Steam extends Component {
         super(props);
         this.state = {
             props: props,
-            imageMatrix: []
+            imageMatrix: [],
+            currentOnScreen: [],
+            enabled: true
         };
     }
 
 
     componentDidMount() {
+        var tryc = 0
         const interval = setInterval(() => {
+            if (!this.state.enabled) return 1;
+            this.state.currentOnScreen = this.removeDuplicates(this.state.currentOnScreen)
             const { imageMatrix } = this.state;
-            var nimage = this.getRandomInt(imageMatrix.length);
+            do {
+                var nimage = this.getRandomInt(this.state.imageMatrix.length);
+                if (tryc >= 100) { this.state.enabled = false; return 1 }; tryc++;
+            } while (this.state.currentOnScreen.includes(imageMatrix[nimage].id));
+            tryc = 0;
+            //2.- Obtenemos una posición aleatoria donde irá la imagen
             var npos = this.getRandomInt(matrixDimension[0] * matrixDimension[1]);
-            //console.log("#tweak" + npos + " -> " + this.state.imageMatrix[nimage]);
-            $("#tweak" + npos).fadeOut("slow", function () {
-                $("#tweak" + npos).attr("src", imageMatrix[nimage]);
-                $("#tweak" + npos).fadeIn("slow");
-            });
+            //3.- Quitamos el elemento de la vista
+            //3.1- Evitar duplicados en ejecuciones paralelas
+            var cond1 = this.state.currentOnScreen.includes(parseInt($("#tweak" + npos).attr("imid")))
+            var cond2 = $("img[imid='" + imageMatrix[nimage].id + "']").attr("src") == undefined
+
+            if (cond1 && cond2) {
+                this.state.currentOnScreen = this.state.currentOnScreen.filter(function (value, index, arr) {
+                    return value != parseInt($("#tweak" + npos).attr("imid"));
+                });
+                this.state.currentOnScreen.push(imageMatrix[nimage].id);
+                //4.- Actualizamos la imagen
+                $("#tweak" + npos).fadeOut("slow", function () {
+                    $("#tweak" + npos).attr("imid", imageMatrix[nimage].id);
+                    $("#tweak" + npos).attr("src", imageMatrix[nimage].url);
+                    $("#tweak" + npos).fadeIn("slow");
+                });
+            }
         }, 1000);
+    }
+
+
+    removeDuplicates(inpArr) {
+        var uniqueNames = [];
+        $.each(inpArr, function (i, el) {
+            if ($.inArray(el, uniqueNames) === -1) uniqueNames.push(el);
+        });
+        return uniqueNames;
     }
 
     getImages() {
@@ -37,16 +68,18 @@ class Steam extends Component {
         var ic = 0;
         this.state.props.content.Images.data.forEach(im => {
             if (ic < matrixDimension[0] * matrixDimension[1]) {
-                retArr.push(<div><img id={"tweak" + ic} style={imStyle} src={im.attributes.url}></img></div>);
-                ic++;
+                retArr.push(<div><img imid={ic} id={"tweak" + ic} style={imStyle} src={im.attributes.url}></img></div>);
+                this.state.currentOnScreen.push(ic)
             }
-            this.state.imageMatrix.push(im.attributes.url);
+            this.state.imageMatrix.push({ url: im.attributes.url, id: ic });
+            ic++;
         });
         return retArr;
     }
 
     getRandomInt(max) {
-        return Math.floor(Math.random() * max);
+        const min = 0;
+        return Math.floor(Math.random() * (max - min) + min)
     }
 
     //{ "transform": "rotateX(-60deg) rotateY(0deg) rotateZ(+45deg)" }
