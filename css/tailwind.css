@@ -22,3 +22,11 @@
   scrollbar-width: none; 
   -ms-overflow-style: none;
 }
+
+*::-webkit-scrollbar {
+  display: none; /* for Chrome, Safari, and Opera */
+}
+
+*::scrollbar {
+  display: none; /* for Chrome, Safari, and Opera */
+}
