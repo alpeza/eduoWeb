@@ -138,11 +138,11 @@ requestify.get('http://localhost:1337/api/pages?'+qs.stringify({
   console.log('response Error', response.getCode());
 });
 
-*/
+
 
 
 function procesa2(info){
-  //console.dir(info, {depth: null, colors: true});
+  console.dir(info, {depth: null, colors: true});
   info.data[0].attributes.pcontent.forEach(element => {
     if( element['__component'].match('landing-assets.free-text')){
       console.dir(element, {depth: null, colors: true});
@@ -164,3 +164,16 @@ requestify.get('http://localhost:1337/api/pages?'+qs.stringify({
 .fail(function (response) {
   console.log('response Error', response.getCode());
 });
+
+*/
+
+var qr=querier( 'pages',qs.stringify({
+  populate: 'deep,30',
+  filters: {
+    pname: {
+      $eq: 'home',
+    },
+  },
+}, {
+  encodeValuesOnly: true, 
+}))

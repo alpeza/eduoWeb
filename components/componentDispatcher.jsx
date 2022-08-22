@@ -16,6 +16,8 @@ import Carousel from "./carousel";
 import GridDispatcher from "./GridCards/gridDispatcher";
 import FreeText from "./freeText";
 import Thinckerframe from "./thinckerframe";
+import SquareCard from "./squareCard";
+import Steam from "./Tweaks/steam";
 
 export default class ComponentDispatcher extends React.Component {
     constructor(props) {
@@ -61,9 +63,15 @@ export default class ComponentDispatcher extends React.Component {
             } else if (element["__component"] == 'landing-assets.free-text') {
                 /* ==== FreeText ==== */
                 this.state.elmarr.push(<FreeText content={element}></FreeText>)
+            } else if (element["__component"] == 'landing-assets.square-card') {
+                /* ==== Square Card ==== */
+                this.state.elmarr.push(<SquareCard content={element}></SquareCard>)
             } else if (element["__component"] == 'plugins.thinkercircuit') {
                 /* ==== Thincker circuit ==== */
                 this.state.elmarr.push(<Thinckerframe content={element}></Thinckerframe>)
+            } else if (element["__component"] == 'tweaks.steam') {
+                /* ==== Tweack steam ==== */
+                this.state.elmarr.push(<Steam content={element}></Steam>)
             } else if (element["__component"] == "landing-assets.model-viewer") {
                 /* ==== model-viewer ==== */
                 this.state.elmarr.push(<ModelViewer

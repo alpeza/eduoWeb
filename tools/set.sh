@@ -1,4 +1,5 @@
 envv="$1"
+kill -9 $(lsof -ti:3000)
 cd ..
 if [[ "$envv" = "tst" ]]; then
     cat .env.local > .env

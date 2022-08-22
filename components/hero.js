@@ -15,13 +15,13 @@ export default function Hero(props) {
       <Container className="flex flex-wrap ">
         <div className="flex items-center w-full lg:w-1/2">
           <div className="max-w-2xl mb-8">
-            <Parallax speed={1}>
+            
             
             <h1 className="text-4xl font-bold leading-snug tracking-tight text-tca3 lg:text-4xl lg:leading-tight xl:text-6xl xl:leading-tight dark:text-white">
               {props.content.Title}
             </h1>
            
-            </Parallax>
+           
             <p className="py-5 text-xl leading-normal text-tca20 lg:text-xl xl:text-2xl dark:text-gray-300">
             {props.content.Subtitle}
             </p>
@@ -50,7 +50,7 @@ export default function Hero(props) {
         </div>
         <div className="flex items-center justify-center w-full lg:w-1/2">
           <div className="">
-            <Parallax speed={-8}>
+           
               <Image
                 src={herourl}
                 width={props.content.Image.data[0].attributes.width}
@@ -60,7 +60,7 @@ export default function Hero(props) {
                 loading="eager"
                 //placeholder="blur"
               />
-            </Parallax>
+            
           </div>
         </div>
       </Container>

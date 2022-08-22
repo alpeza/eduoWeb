@@ -43,9 +43,11 @@
     "nextjs-progressbar": "^0.0.14",
     "qs": "^6.11.0",
     "react": "^18.2.0",
+    "react-device-detect": "^2.2.2",
     "react-dom": "^18.2.0",
     "react-google-button": "^0.7.2",
     "react-hook-form": "^7.8.3",
+    "react-parallax": "^3.5.1",
     "react-scroll-parallax": "^3.2.0",
     "requestify": "^0.2.5",
     "three": "^0.143.0"
