@@ -9,7 +9,6 @@ import Cta from "./cta";
 import Faq from "./faq";
 import PopupWidget from "./popupWidget";
 import { Benefit } from "./benefit";
-import { ParallaxProvider } from 'react-scroll-parallax';
 import { getStrapiURL } from "../lib/api";
 import ModelViewer from "./3DViewer/ModelViewer";
 import Carousel from "./carousel";
@@ -94,9 +93,7 @@ export default class ComponentDispatcher extends React.Component {
     render() {
         return (
             <>
-                <ParallaxProvider>
-                    {this.state.elmarr}
-                </ParallaxProvider>
+                {this.state.elmarr}
             </>);
     }
 }
