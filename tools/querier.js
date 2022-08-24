@@ -165,7 +165,6 @@ requestify.get('http://localhost:1337/api/pages?'+qs.stringify({
   console.log('response Error', response.getCode());
 });
 
-*/
 
 var qr=querier( 'pages',qs.stringify({
   populate: 'deep,30',
@@ -177,3 +176,30 @@ var qr=querier( 'pages',qs.stringify({
 }, {
   encodeValuesOnly: true, 
 }))
+*/
+
+
+
+function procesa2(info){
+  console.dir(info, {depth: null, colors: true});
+  info.data[0].attributes.pcontent.forEach(element => {
+    if( element['__component'].match('landing-assets.free-text')){
+      console.dir(element, {depth: null, colors: true});
+    }
+  });
+}
+
+requestify.get('http://localhost:1337/api/pages?'+qs.stringify({
+  populate: 'deep,30',
+  filters: {
+    ppath: {
+      $eq: 'marketing',
+    },
+  },
+}))
+.then(function(response) {
+  procesa2(response.getBody())
+})
+.fail(function (response) {
+  console.log('response Error', response.getCode());
+});

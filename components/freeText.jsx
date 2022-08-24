@@ -1,12 +1,26 @@
 import React, { Component } from 'react';
 import parse from "html-react-parser";
 import Container from "./container";
+import $ from 'jquery';
 
-const replaceRules = {
-    "<h1>": '<h1 class="justify-center text-center text-4xl font-bold leading-snug tracking-tight text-tca3 lg:text-4xl lg:leading-tight xl:text-6xl xl:leading-tight dark:text-white">',
-    "<h2>": '<p class="justify-center text-center py-5 text-xl leading-normal text-tcb7 lg:text-xl xl:text-2xl dark:text-tcb7">',
-    "<h3>": '<p class="text-justify py-4 text-xl leading-normal text-tca20 lg:text-xl xl:text-xl dark:text-gray-300">'
-}
+
+const replaceRules = [
+    {
+        regex: /<h1>/g,
+        replace: '<h1 class="justify-center text-center text-4xl font-bold leading-snug tracking-tight text-tca3 lg:text-4xl lg:leading-tight xl:text-6xl xl:leading-tight dark:text-white">'
+    },
+    {
+        regex: /<h2>/g,
+        replace: '<p class="justify-center text-center py-5 text-xl leading-normal text-tcb7 lg:text-xl xl:text-2xl dark:text-tcb7">'
+    },
+    {
+        regex: /<h3>/g,
+        replace: '<p class="text-justify py-4 text-xl leading-normal text-tca20 lg:text-xl xl:text-xl dark:text-gray-300">'
+    }
+]
+
+
+
 
 class FreeText extends Component {
     constructor(props) {
@@ -16,12 +30,15 @@ class FreeText extends Component {
         }
     }
 
+    sel(q) {
+        return $(parse(this.state.text)).find(q)
+    }
+
     proccessText() {
-        Object.entries(replaceRules).forEach(entry => {
-            const [key, value] = entry;
-            this.state.text = this.state.text.replaceAll(key, value)
+        replaceRules.forEach(e => {
+            if (e.regex != "$jq")
+                this.state.text = this.state.text.replaceAll(e.regex, e.replace)
         });
-        console.log(this.state.text)
         return parse(this.state.text)
     }
 
@@ -29,7 +46,9 @@ class FreeText extends Component {
         return (
             <div>
                 <Container>
-                    {this.proccessText()}
+                    <div className="w-full max-w-2xl p-2 mx-auto rounded-2xl">
+                        {this.proccessText()}
+                    </div>
                 </Container>
             </div>
         );
