@@ -1,8 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import ModelViewer from "./3DViewer/ModelViewer";
 import Container from "./container";
-import { getStrapiURL } from "../lib/api";
 export default function Benefits(props) {
   const { data } = props;
 

@@ -17,6 +17,7 @@ import FreeText from "./freeText";
 import Thinckerframe from "./thinckerframe";
 import SquareCard from "./squareCard";
 import Steam from "./Tweaks/steam";
+import GoogleDriveViewer from "./DocsViewer/GoogleDriveViewer";
 
 export default class ComponentDispatcher extends React.Component {
     constructor(props) {
@@ -68,6 +69,9 @@ export default class ComponentDispatcher extends React.Component {
             } else if (element["__component"] == 'plugins.thinkercircuit') {
                 /* ==== Thincker circuit ==== */
                 this.state.elmarr.push(<Thinckerframe content={element}></Thinckerframe>)
+            } else if (element["__component"] == 'plugins.google-docs-viewer') {
+                /* ==== GoogleDocs ==== */
+                this.state.elmarr.push(<GoogleDriveViewer content={element}></GoogleDriveViewer>)
             } else if (element["__component"] == 'tweaks.steam') {
                 /* ==== Tweack steam ==== */
                 this.state.elmarr.push(<Steam content={element}></Steam>)
