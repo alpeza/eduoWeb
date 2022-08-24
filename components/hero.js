@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Container from "./container";
 import { getStrapiURL } from "../lib/api";
-import { Parallax } from 'react-scroll-parallax';
+
 
 /*
 import { getStrapiURL } from "../lib/api";
