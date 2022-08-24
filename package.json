@@ -52,7 +52,8 @@
     "react-parallax": "^3.5.1",
     "requestify": "^0.2.5",
     "three": "^0.143.0",
-    "window": "^4.2.7"
+    "window": "^4.2.7",
+    "merge": "^2.1.1"
   },
   "devDependencies": {
     "@emotion/babel-plugin": "^11.3.0",
