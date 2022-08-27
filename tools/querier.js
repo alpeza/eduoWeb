@@ -193,7 +193,7 @@ requestify.get('http://localhost:1337/api/pages?'+qs.stringify({
   populate: 'deep,30',
   filters: {
     ppath: {
-      $eq: 'marketing',
+      $eq: 'eduokits',
     },
   },
 }))

@@ -1,14 +1,13 @@
-import Image from "next/image";
-import Container from "./container";
 import { getStrapiURL } from "../lib/api";
-
-import { Parallax, Background } from "react-parallax";
+import { Parallax } from "react-parallax";
 import { isMobile } from 'react-device-detect';
+import FreeText from "./freeText";
 
 //"background-image": "url('" + herourl + "')", "background-repeat": "no-repeat", "background-position": "center", "background-size": "100%", "background-position-y": "0px"
 
 export default function SquareCard(props) {
-    const herourl = getStrapiURL(props.content.Image.data.attributes.url)
+    const herourl = getStrapiURL(props.content.Image.data?.attributes.url)
+
     return (
         <>
             <a href={props.content.links.length > 0 ? props.content.links[0].url : "#"}>
@@ -34,6 +33,9 @@ export default function SquareCard(props) {
                                     </div>
                                 </div>
                             </div>
+                            {props.content.freetext &&
+                                <FreeText content={props.content.freetext}></FreeText>
+                            }
                         </div>
                     </div>
                 </Parallax>
