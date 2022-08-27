@@ -41,7 +41,7 @@ const fileConfigs = [
     },
     {
         type: 'file',
-        regex: /https:\/\/drive\.google\.com\/file\/d\/(\w+)/,
+        regex: /https:\/\/drive\.google\.com\/file\/d\/([a-zA-Z0-9_.-]*)/,
         embed: 'https://drive.google.com/file/d/{id}/preview',
         props: {
             frameborder: "0",
