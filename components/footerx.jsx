@@ -142,22 +142,18 @@ class Footerx extends Component {
             <div>
               <div className="flex flex-wrap w-full -mt-2 -ml-3 lg:ml-0">
                 {navLinks.map((item, index) => (
-                  <Link key={index} href={item.Link}>
-                    <a className="w-full px-4 py-2 text-tca20 rounded-md dark:text-gray-300 hover:text-tcb6 focus:text-tcb6 focus:bg-tcb4 focus:outline-none dark:focus:bg-tcc9">
-                      {item.Text}
-                    </a>
-                  </Link>
+                  <a href={data.Link} className="w-full px-4 py-2 text-tca20 rounded-md dark:text-gray-300 hover:text-tcb6 focus:text-tcb6 focus:bg-tcb4 focus:outline-none dark:focus:bg-tcc9">
+                    {item.Text}
+                  </a>
                 ))}
               </div>
             </div>
             <div>
               <div className="flex flex-wrap w-full -mt-2 -ml-3 lg:ml-0">
                 {otherLinks.map((item, index) => (
-                  <Link key={index} href={item.Link}>
-                    <a className="w-full px-4 py-2 text-tca20 rounded-md dark:text-gray-300 hover:text-tcb6 focus:text-tcb6 focus:bg-tcb4 focus:outline-none dark:focus:bg-tcc9">
-                      {item.Text}
-                    </a>
-                  </Link>
+                  <a href={data.Link} className="w-full px-4 py-2 text-tca20 rounded-md dark:text-gray-300 hover:text-tcb6 focus:text-tcb6 focus:bg-tcb4 focus:outline-none dark:focus:bg-tcc9">
+                    {item.Text}
+                  </a>
                 ))}
               </div>
             </div>
