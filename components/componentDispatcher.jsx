@@ -18,6 +18,7 @@ import Thinckerframe from "./thinckerframe";
 import SquareCard from "./squareCard";
 import Steam from "./Tweaks/steam";
 import GoogleDriveViewer from "./DocsViewer/GoogleDriveViewer";
+import SendQuestions from "./Communications/SendQuestions";
 
 export default class ComponentDispatcher extends React.Component {
     constructor(props) {
@@ -75,6 +76,9 @@ export default class ComponentDispatcher extends React.Component {
             } else if (element["__component"] == 'tweaks.steam') {
                 /* ==== Tweack steam ==== */
                 this.state.elmarr.push(<Steam content={element}></Steam>)
+            } else if (element["__component"] == 'communications.send-form') {
+                /* ==== SendQuestions ==== */
+                this.state.elmarr.push(<SendQuestions content={element}></SendQuestions>)
             } else if (element["__component"] == "landing-assets.model-viewer") {
                 /* ==== model-viewer ==== */
                 this.state.elmarr.push(<ModelViewer
