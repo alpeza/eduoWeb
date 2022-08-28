@@ -9,8 +9,8 @@ class SendQuestions extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            formSchema: props.content.form.JSONSchema,
-            uiSchema: props.content.form.UISchema,
+            formSchema: props.content.form.common_forms.data[0].attributes.form.JSONSchema,
+            uiSchema: props.content.form.common_forms.data[0].attributes.form.UISchema,
             key: props.content.form.name,
             cftitle: props.content.cftitle,
             cfsubtitle: props.content.cfsubtitle,
