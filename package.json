@@ -39,6 +39,7 @@
     "html-react-parser": "^3.0.1",
     "jquery": "^3.6.0",
     "jsdom": "^20.0.0",
+    "merge": "^2.1.1",
     "next": "^11.1.0",
     "next-themes": "^0.0.14",
     "nextjs-progressbar": "^0.0.14",
@@ -49,11 +50,12 @@
     "react-google-button": "^0.7.2",
     "react-hook-form": "^7.8.3",
     "react-jsdom": "^3.0.0",
+    "react-jsonschema-form": "^1.8.1",
+    "react-loading": "^2.0.3",
     "react-parallax": "^3.5.1",
     "requestify": "^0.2.5",
     "three": "^0.143.0",
-    "window": "^4.2.7",
-    "merge": "^2.1.1"
+    "window": "^4.2.7"
   },
   "devDependencies": {
     "@emotion/babel-plugin": "^11.3.0",
