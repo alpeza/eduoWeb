@@ -30,10 +30,7 @@ class FreeText extends Component {
         }
     }
 
-    sel(q) {
-        return $(parse(this.state.text)).find(q)
-    }
-
+ 
     proccessText() {
         replaceRules.forEach(e => {
             if (e.regex != "$jq")
