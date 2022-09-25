@@ -5,9 +5,7 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
-    
-env:
-  NEXT_PUBLIC_STRAPI_API_URL: https://eduokit-admin.herokuapp.com
+
 
 jobs:
 
@@ -16,4 +14,11 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag eduoweb:latest
+      env:
+        NEXT_PUBLIC_STRAPI_API_URL: https://eduokit-admin.herokuapp.com
+        DOCKER_TAG: alpeza/eduoweb:latest
+        DOCKER_HUB_TOKEN: ${{ secrets.DOCKER_HUB_TOKEN }}
+      run: |
+       echo $DOCKER_HUB_USERNAME | docker login --username alpeza --password-stdin;
+       docker build . --file Dockerfile --tag "$DOCKER_TAG";
+       docker push "$DOCKER_TAG"
