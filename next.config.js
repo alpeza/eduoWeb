@@ -2,14 +2,18 @@
 //module.exports = withTM()
 module.exports = {
   reactStrictMode: true, 
+  output: 'standalone',
+  experimental: {
+    outputStandalone: true,
+  },
   images: {
     domains: ['localhost','localhost:1337','res.cloudinary.com','source.unsplash.com','eduokit-admin.herokuapp.com'],
     formats: ['image/avif', 'image/webp'],
   },
   fallback: false,
   i18n: {
-    locales: ["en"],
-    defaultLocale: "en",
+    locales: ["es"],
+    defaultLocale: "es",
   },
   target: "serverless",
   webpack: (config, { isServer }) => {
