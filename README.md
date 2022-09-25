@@ -13,10 +13,6 @@ npm run dev
 
 [![Run on Google Cloud](https://deploy.cloud.run/button.svg)](https://deploy.cloud.run)
 
-```
-docker build --tag eduoweb:1.0.0 .
-```
-
 ## Referencias
 
 - <https://www.tailwind-kit.com/components/blog>
