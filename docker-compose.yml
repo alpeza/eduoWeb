@@ -2,7 +2,7 @@ version: '3'
 services:
   eduoweb:
     container_name: eduoweb
-    image: eduoweb:1.0.0
+    image: alpeza/eduoweb:latest
     restart: always
     environment:
       - NODE_ENV=production
