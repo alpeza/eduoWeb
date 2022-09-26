@@ -1,1 +1,1 @@
-NEXT_PUBLIC_STRAPI_API_URL=https://eduobackend-23abvr7e4a-no.a.run.app
+NEXT_PUBLIC_STRAPI_API_URL=https://admin.eduokit.xyz
