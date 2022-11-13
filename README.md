@@ -1,4 +1,4 @@
-# eduoWeb
+# EduoWeb Main Project
 
 ## Deploy local
 
